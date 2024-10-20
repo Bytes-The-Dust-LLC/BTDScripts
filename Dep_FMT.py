@@ -2,9 +2,10 @@
 
 import GitOperations
 
-#gets the include directory
-FMT_INCLUDE_DIR = "Venders/FMT/include"
-
 #clones FMT
-def GetDep_FMT():
-    GitOperations.GitClone("https://github.com/fmtlib/fmt.git", "FMT")
+def GetDep_FMT(vendersDir):
+    GitOperations.GitClone("https://github.com/fmtlib/fmt.git", vendersDir + "/FMT")
+
+#gets the include directory
+def GetIncludeDirectory(vendersDir):
+    return vendersDir + "/FMT/include"

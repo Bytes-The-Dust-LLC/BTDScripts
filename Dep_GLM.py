@@ -2,9 +2,10 @@
 
 import GitOperations
 
-#gets the include directory
-GLM_INCLUDE_DIR = "Venders/GLM"
-
 #clones GLM
-def GetDep_GLM():
-    GitOperations.GitClone("https://github.com/g-truc/glm.git", "GLM")
+def GetDep_GLM(vendersDir):
+    GitOperations.GitClone("https://github.com/g-truc/glm.git", vendersDir + "/GLM")
+
+#gets the include directory
+def GetIncludeDirectory(vendersDir):
+    return vendersDir + "/GLM"

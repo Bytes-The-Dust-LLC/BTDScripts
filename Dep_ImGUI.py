@@ -2,9 +2,6 @@
 
 import GitOperations
 
-#gets the include directory
-IMGUI_INCLUDE_DIR = "Venders/ImGUI"
-
 #lists all the files we need to include
 IMGUI_SOURCE_FILE_NAMES = [
 	"imconfig.h",
@@ -29,5 +26,9 @@ def AddSources_ImGUI(srcs):
 		srcs.append(IMGUI_INCLUDE_DIR + "/" + f)
 
 #clones ImGUI
-def GetDep_ImGUI():
-    GitOperations.GitClone("https://github.com/ocornut/imgui.git", "ImGUI")
+def GetDep_ImGUI(vendersDir):
+    GitOperations.GitClone("https://github.com/ocornut/imgui.git", VendersDir + "/ImGUI")
+
+#gets the include directory
+def GetIncludeDirectory(vendersDir):
+    return vendersDir + "/ImGUI"
